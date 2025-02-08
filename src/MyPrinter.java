@@ -1,16 +1,12 @@
 public class MyPrinter implements Printer {
     @Override
-    public void print(Message message) {
-        if (message.getSender() == null || message.getSender().isEmpty()) {
-            System.out.println("Анонімний користувач відправив повідомлення: " + message.getText());
-        } else if (message.getText() != null && !message.getText().isEmpty()) {
-            System.out.println("Користувач " + message.getSender() + " відправив повідомлення: " + message.getText());
+    public void print(String sender, String text) {
+        if (sender == null || sender.isEmpty()) {
+            System.out.println("Анонімний користувач відправив повідомлення: " + text);
+        } else if (text != null && !text.isEmpty()) {
+            System.out.println("Користувач " + sender + " відправив повідомлення: " + text);
         } else {
-            new Runnable() {
-                public void run() {
-                    System.out.println("Опрацьовується пусте повідомлення від анонімного користувача...");
-                }
-            }.run();
+            System.out.println("Опрацьовується пусте повідомлення від анонімного користувача...");
         }
     }
     public static class Message {
@@ -31,6 +27,13 @@ public class MyPrinter implements Printer {
         }
         public void setSender(String sender) {
             this.sender = sender;
+        }
+        @Override
+        public String toString() {
+            return "Message{" +
+                    "text='" + text + '\'' +
+                    ", sender='" + sender + '\'' +
+                    '}';
         }
     }
 }
