@@ -9,7 +9,6 @@ public class MyPrinter implements Printer {
             System.out.println("Опрацьовується пусте повідомлення від анонімного користувача...");
         }
     }
-
     public static class Message {
         private String text;
         private String sender;
@@ -18,23 +17,18 @@ public class MyPrinter implements Printer {
             this.text = text;
             this.sender = sender;
         }
-
         public String getText() {
             return text;
         }
-
         public String getSender() {
             return sender;
         }
-
         public void setText(String text) {
             this.text = text;
         }
-
         public void setSender(String sender) {
             this.sender = sender;
         }
-
         @Override
         public String toString() {
             return "Message{" +
