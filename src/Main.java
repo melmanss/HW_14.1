@@ -15,11 +15,10 @@ public class Main {
             System.out.print("Введіть ім'я відправника (можна залишити порожнім): ");
             String sender = scanner.nextLine();
 
-            MyPrinter.Message message = new MyPrinter.Message(text, sender);
-
-            printer.print(message);
+            // Виклик методу print
+            printer.print(sender, text);
         }
 
-        scanner.close();
+        scanner.close(); // Закриття сканера
     }
 }
